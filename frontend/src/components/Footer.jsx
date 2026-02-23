@@ -8,19 +8,19 @@ export const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div className="container mx-auto px-4 py-12 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand Section */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-4 bg-gradient-to-r from-maroon-400 to-maroon-600 bg-clip-text text-transparent">
+            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 bg-gradient-to-r from-maroon-400 to-maroon-600 bg-clip-text text-transparent">
               Hearty Caterers
             </h3>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-400 mb-6 leading-relaxed">
               Creating unforgettable culinary experiences for weddings, corporate events, and celebrations across Kerala.
             </p>
             <div className="flex items-center gap-2 text-maroon-400">
-              <Heart className="w-5 h-5 fill-maroon-400" />
-              <span className="text-sm">Made with passion</span>
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5 fill-maroon-400" />
+              <span className="text-xs sm:text-sm">Made with passion</span>
             </div>
           </div>
 
@@ -51,36 +51,36 @@ export const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-4">Our Services</h4>
+            <h4 className="text-base sm:text-lg font-bold text-white mb-4">Our Services</h4>
             <ul className="space-y-3">
-              <li className="text-gray-400">Wedding Catering</li>
-              <li className="text-gray-400">Corporate Events</li>
-              <li className="text-gray-400">Custom Event Decor</li>
-              <li className="text-gray-400">Birthday Parties</li>
-              <li className="text-gray-400">Anniversary Celebrations</li>
-              <li className="text-gray-400">Religious Ceremonies</li>
+              <li className="text-sm sm:text-base text-gray-400">Wedding Catering</li>
+              <li className="text-sm sm:text-base text-gray-400">Corporate Events</li>
+              <li className="text-sm sm:text-base text-gray-400">Custom Event Decor</li>
+              <li className="text-sm sm:text-base text-gray-400">Birthday Parties</li>
+              <li className="text-sm sm:text-base text-gray-400">Anniversary Celebrations</li>
+              <li className="text-sm sm:text-base text-gray-400">Religious Ceremonies</li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-bold text-white mb-4">Contact Us</h4>
+            <h4 className="text-base sm:text-lg font-bold text-white mb-4">Contact Us</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-maroon-400 flex-shrink-0 mt-1" />
-                <span className="text-gray-400 text-sm">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-maroon-400 flex-shrink-0 mt-1" />
+                <span className="text-xs sm:text-sm text-gray-400">
                   {contactInfo.address}
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-maroon-400 flex-shrink-0" />
-                <a href={`tel:${contactInfo.phone}`} className="text-gray-400 hover:text-maroon-400 transition-colors text-sm">
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-maroon-400 flex-shrink-0" />
+                <a href={`tel:${contactInfo.phone}`} className="text-xs sm:text-sm text-gray-400 hover:text-maroon-400 transition-colors">
                   {contactInfo.phone}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-maroon-400 flex-shrink-0" />
-                <a href={`mailto:${contactInfo.email}`} className="text-gray-400 hover:text-maroon-400 transition-colors text-sm">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-maroon-400 flex-shrink-0" />
+                <a href={`mailto:${contactInfo.email}`} className="text-xs sm:text-sm text-gray-400 hover:text-maroon-400 transition-colors break-all">
                   {contactInfo.email}
                 </a>
               </li>

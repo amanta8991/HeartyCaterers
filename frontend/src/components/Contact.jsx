@@ -50,32 +50,32 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-white to-maroon-50/30">
+    <section id="contact" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-maroon-50/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-block bg-maroon-100 text-maroon-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             Get In Touch
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Let's Plan Your Perfect Event
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             Ready to make your event unforgettable? Reach out to us and let's create something amazing together
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <Card className="border-0 shadow-xl">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <CardContent className="p-6 sm:p-8">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
                   Request a Quote
                 </h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Your Name *
@@ -107,7 +107,7 @@ export const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Phone Number *
@@ -138,7 +138,7 @@ export const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Event Type *
@@ -193,18 +193,18 @@ export const Contact = () => {
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                       type="submit"
-                      className="flex-1 bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white py-6 text-lg transition-all duration-300 hover:shadow-lg group"
+                      className="flex-1 bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white py-4 sm:py-6 text-base sm:text-lg transition-all duration-300 hover:shadow-lg group"
                     >
-                      <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
+                      <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                       Submit Inquiry
                     </Button>
                     
                     <Button
                       type="button"
                       onClick={handleWhatsApp}
-                      className="flex-1 bg-green-600 hover:bg-green-700 text-white py-6 text-lg transition-all duration-300 hover:shadow-lg"
+                      className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 sm:py-6 text-base sm:text-lg transition-all duration-300 hover:shadow-lg"
                     >
-                      <MessageCircle className="w-5 h-5 mr-2" />
+                      <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                       WhatsApp Us
                     </Button>
                   </div>
