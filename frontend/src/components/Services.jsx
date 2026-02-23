@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { servicesData } from '../data/mock';
 import { Heart, Briefcase, Sparkles, Calendar, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
@@ -11,6 +12,8 @@ const iconMap = {
 };
 
 export const Services = () => {
+  const navigate = useNavigate();
+  
   return (
     <section id="services" className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="container mx-auto px-4">
