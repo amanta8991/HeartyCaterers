@@ -33,7 +33,7 @@ export const Menu = () => {
                 key={index}
                 value={index.toString()}
                 onClick={() => setActiveCategory(index)}
-                className="data-[state=active]:bg-maroon-600 data-[state=active]:text-white text-gray-700 font-medium transition-all duration-300 rounded-lg py-2 sm:py-3 text-xs sm:text-sm"
+                className="data-[state=active]:bg-maroon-600 data-[state=active]:text-white text-gray-700 font-medium transition-all duration-300 rounded-lg py-3 sm:py-4 text-xs sm:text-sm px-2"
               >
                 {category.name}
               </TabsTrigger>
