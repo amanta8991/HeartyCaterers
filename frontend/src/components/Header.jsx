@@ -7,6 +7,9 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  
+  // Check if we're on home page
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,11 +32,14 @@ export const Header = () => {
     { label: 'Testimonials', path: '/testimonials' },
     { label: 'Contact', path: '/contact' }
   ];
+  
+  // Determine header style based on page and scroll
+  const shouldShowWhiteBg = !isHomePage || isScrolled;
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+        shouldShowWhiteBg
           ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' 
           : 'bg-transparent py-5'
       }`}
@@ -59,7 +65,7 @@ export const Header = () => {
                 className={`text-sm font-medium transition-all duration-300 hover:text-maroon-600 relative group ${
                   location.pathname === item.path 
                     ? 'text-maroon-600' 
-                    : isScrolled ? 'text-gray-700' : 'text-white'
+                    : shouldShowWhiteBg ? 'text-gray-700' : 'text-white'
                 }`}
               >
                 {item.label}
@@ -88,9 +94,9 @@ export const Header = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+              <X className={`w-6 h-6 ${shouldShowWhiteBg ? 'text-gray-700' : 'text-white'}`} />
             ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
+              <Menu className={`w-6 h-6 ${shouldShowWhiteBg ? 'text-gray-700' : 'text-white'}`} />
             )}
           </button>
         </div>
