@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X, Phone } from 'lucide-react';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,22 +16,18 @@ export const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMobileMenuOpen(false);
-    }
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Services', id: 'services' },
-    { label: 'Menu', id: 'menu' },
-    { label: 'Gallery', id: 'gallery' },
-    { label: 'Testimonials', id: 'testimonials' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Menu', path: '/menu' },
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Testimonials', path: '/testimonials' },
+    { label: 'Contact', path: '/contact' }
   ];
 
   return (
@@ -43,40 +41,45 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div 
+          <Link 
+            to="/"
             className="flex items-center cursor-pointer group"
-            onClick={() => scrollToSection('home')}
           >
             <div className="text-2xl font-bold bg-gradient-to-r from-maroon-600 to-maroon-800 bg-clip-text text-transparent transition-transform duration-300 group-hover:scale-105">
               Hearty Caterers
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+              <Link
+                key={item.path}
+                to={item.path}
                 className={`text-sm font-medium transition-all duration-300 hover:text-maroon-600 relative group ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
+                  location.pathname === item.path 
+                    ? 'text-maroon-600' 
+                    : isScrolled ? 'text-gray-700' : 'text-white'
                 }`}
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-maroon-600 transition-all duration-300 group-hover:w-full"></span>
-              </button>
+                <span className={`absolute bottom-0 left-0 h-0.5 bg-maroon-600 transition-all duration-300 ${
+                  location.pathname === item.path ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
+              </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              onClick={() => scrollToSection('contact')}
-              className="bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white px-6 py-2 transition-all duration-300 hover:shadow-lg hover:scale-105"
-            >
-              <Phone className="w-4 h-4 mr-2" />
-              Book Now
-            </Button>
+            <Link to="/contact">
+              <Button
+                className="bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white px-6 py-2 transition-all duration-300 hover:shadow-lg hover:scale-105"
+              >
+                <Phone className="w-4 h-4 mr-2" />
+                Book Now
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,24 +97,28 @@ export const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl mt-2 py-4 animate-accordion-down">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl mt-2 py-4 animate-accordion-down z-50">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-6 py-3 text-gray-700 hover:bg-maroon-50 hover:text-maroon-600 transition-colors duration-200"
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={closeMobileMenu}
+                className={`block w-full text-left px-6 py-3 hover:bg-maroon-50 hover:text-maroon-600 transition-colors duration-200 ${
+                  location.pathname === item.path ? 'text-maroon-600 bg-maroon-50' : 'text-gray-700'
+                }`}
               >
                 {item.label}
-              </button>
+              </Link>
             ))}
             <div className="px-6 pt-4">
-              <Button
-                onClick={() => scrollToSection('contact')}
-                className="w-full bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white"
-              >
-                <Phone className="w-4 h-4 mr-2" />
-                Book Now
-              </Button>
+              <Link to="/contact" onClick={closeMobileMenu}>
+                <Button
+                  className="w-full bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  Book Now
+                </Button>
+              </Link>
             </div>
           </div>
         )}
