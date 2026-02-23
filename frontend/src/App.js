@@ -11,6 +11,7 @@ import { MenuPage } from "@/pages/MenuPage";
 import { GalleryPage } from "@/pages/GalleryPage";
 import { TestimonialsPage } from "@/pages/TestimonialsPage";
 import { ContactPage } from "@/pages/ContactPage";
+import { ServiceDetail } from "@/components/ServiceDetail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
