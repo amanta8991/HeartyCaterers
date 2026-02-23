@@ -1,15 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { ArrowRight, Star } from 'lucide-react';
 import { heroData } from '../data/mock';
 
 export const Hero = () => {
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -52,7 +48,7 @@ export const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-500">
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/contact')}
               size="lg"
               className="bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white px-8 py-6 text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-maroon-500/50 hover:scale-105 group"
             >
@@ -61,7 +57,7 @@ export const Hero = () => {
             </Button>
             
             <Button
-              onClick={() => scrollToSection('menu')}
+              onClick={() => navigate('/menu')}
               size="lg"
               variant="outline"
               className="border-2 border-white text-white hover:bg-white hover:text-maroon-700 px-8 py-6 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
