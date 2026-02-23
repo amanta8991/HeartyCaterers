@@ -73,7 +73,10 @@ export const Services = () => {
                     </div>
 
                     {/* Learn More Link */}
-                    <button className="inline-flex items-center gap-2 text-maroon-600 font-semibold group/btn hover:gap-3 transition-all duration-300">
+                    <button 
+                      onClick={() => navigate(`/services/${service.id}`)}
+                      className="inline-flex items-center gap-2 text-maroon-600 font-semibold group/btn hover:gap-3 transition-all duration-300"
+                    >
                       Learn More
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>

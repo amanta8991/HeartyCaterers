@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { menuData } from '../data/mock';
+import { servicesData, menuData } from '../data/mock';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Card, CardContent } from './ui/card';
 import { UtensilsCrossed } from 'lucide-react';
