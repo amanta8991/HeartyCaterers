@@ -33,24 +33,24 @@ export const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fade-in-up px-4">
             {heroData.title}
           </h1>
           
-          <p className="text-2xl md:text-3xl text-maroon-200 mb-4 font-medium animate-fade-in-up delay-200">
+          <p className="text-xl sm:text-2xl md:text-3xl text-maroon-200 mb-4 font-medium animate-fade-in-up delay-200 px-4">
             {heroData.subtitle}
           </p>
           
-          <p className="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto animate-fade-in-up delay-300">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto animate-fade-in-up delay-300 px-4">
             {heroData.description}
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-500">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up delay-500 px-4">
             <Button
               onClick={() => navigate('/contact')}
               size="lg"
-              className="bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white px-8 py-6 text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-maroon-500/50 hover:scale-105 group"
+              className="w-full sm:w-auto bg-gradient-to-r from-maroon-600 to-maroon-800 hover:from-maroon-700 hover:to-maroon-900 text-white px-8 py-6 text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-maroon-500/50 hover:scale-105 group"
             >
               {heroData.ctaText}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -60,27 +60,27 @@ export const Hero = () => {
               onClick={() => navigate('/menu')}
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-maroon-700 px-8 py-6 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-maroon-700 px-8 py-6 text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
             >
               {heroData.ctaSecondary}
             </Button>
           </div>
 
           {/* Trust Indicators */}
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-white animate-fade-in-up delay-700">
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-white animate-fade-in-up delay-700 px-4">
             <div className="flex items-center gap-2">
               <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              <span className="text-sm">500+ Events</span>
+              <span className="text-xs sm:text-sm">500+ Events</span>
             </div>
-            <div className="h-4 w-px bg-white/30"></div>
+            <div className="h-4 w-px bg-white/30 hidden sm:block"></div>
             <div className="flex items-center gap-2">
               <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              <span className="text-sm">15+ Years</span>
+              <span className="text-xs sm:text-sm">15+ Years</span>
             </div>
-            <div className="h-4 w-px bg-white/30"></div>
+            <div className="h-4 w-px bg-white/30 hidden sm:block"></div>
             <div className="flex items-center gap-2">
               <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
-              <span className="text-sm">100% Satisfaction</span>
+              <span className="text-xs sm:text-sm">100% Satisfaction</span>
             </div>
           </div>
         </div>

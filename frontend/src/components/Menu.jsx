@@ -10,30 +10,30 @@ export const Menu = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="menu" className="py-24 bg-gradient-to-b from-maroon-50/30 to-white">
+    <section id="menu" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-maroon-50/30 to-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-block bg-maroon-100 text-maroon-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             Our Menu
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Delicious Culinary Creations
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             Explore our diverse menu featuring traditional Kerala delicacies, North Indian classics, and continental favorites
           </p>
         </div>
 
         {/* Menu Categories Tabs */}
         <Tabs defaultValue="0" className="w-full">
-          <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-2 lg:grid-cols-4 mb-12 bg-white shadow-lg p-2 rounded-xl">
+          <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-2 lg:grid-cols-4 mb-8 md:mb-12 bg-white shadow-lg p-2 rounded-xl gap-1">
             {menuData.categories.map((category, index) => (
               <TabsTrigger
                 key={index}
                 value={index.toString()}
                 onClick={() => setActiveCategory(index)}
-                className="data-[state=active]:bg-maroon-600 data-[state=active]:text-white text-gray-700 font-medium transition-all duration-300 rounded-lg py-3"
+                className="data-[state=active]:bg-maroon-600 data-[state=active]:text-white text-gray-700 font-medium transition-all duration-300 rounded-lg py-2 sm:py-3 text-xs sm:text-sm"
               >
                 {category.name}
               </TabsTrigger>
@@ -42,7 +42,7 @@ export const Menu = () => {
 
           {menuData.categories.map((category, categoryIndex) => (
             <TabsContent key={categoryIndex} value={categoryIndex.toString()}>
-              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
                 {category.items.map((item, itemIndex) => (
                   <Card 
                     key={itemIndex}
@@ -79,18 +79,18 @@ export const Menu = () => {
         </Tabs>
 
         {/* Custom Package CTA */}
-        <div className="mt-16 text-center">
+        <div className="mt-12 md:mt-16 text-center">
           <Card className="max-w-3xl mx-auto bg-gradient-to-r from-maroon-600 to-maroon-800 border-0 shadow-2xl">
-            <CardContent className="p-8 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            <CardContent className="p-6 sm:p-8 text-center">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4">
                 Need a Custom Package?
               </h3>
-              <p className="text-maroon-100 mb-6 max-w-xl mx-auto">
+              <p className="text-sm sm:text-base text-maroon-100 mb-6 max-w-xl mx-auto">
                 Our team can create a personalized menu tailored to your preferences, dietary requirements, and budget
               </p>
               <button 
                 onClick={() => navigate('/contact')}
-                className="bg-white text-maroon-700 px-8 py-3 rounded-lg font-semibold hover:bg-maroon-50 transition-all duration-300 hover:scale-105 shadow-lg"
+                className="bg-white text-maroon-700 px-6 sm:px-8 py-2 sm:py-3 rounded-lg font-semibold hover:bg-maroon-50 transition-all duration-300 hover:scale-105 shadow-lg text-sm sm:text-base"
               >
                 Request Custom Quote
               </button>

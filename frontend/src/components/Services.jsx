@@ -12,23 +12,23 @@ const iconMap = {
 
 export const Services = () => {
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-16 sm:py-20 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-block bg-maroon-100 text-maroon-700 px-4 py-2 rounded-full text-sm font-semibold mb-6">
             Our Services
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Exceptional Catering for Every Occasion
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             From intimate gatherings to grand celebrations, we bring culinary excellence and impeccable service to your special moments
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
           {servicesData.map((service, index) => {
             const IconComponent = iconMap[service.icon];
             return (
@@ -53,12 +53,12 @@ export const Services = () => {
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-8">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-maroon-600 transition-colors duration-300">
+                  <div className="p-6 sm:p-8">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-maroon-600 transition-colors duration-300">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base text-gray-600 mb-6 leading-relaxed">
                       {service.description}
                     </p>
 
