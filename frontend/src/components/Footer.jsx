@@ -1,16 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Heart } from 'lucide-react';
 import { contactInfo } from '../data/mock';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -34,14 +28,22 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-bold text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Menu', 'Gallery', 'Testimonials', 'Contact'].map((item) => (
-                <li key={item}>
-                  <button
-                    onClick={() => scrollToSection(item.toLowerCase())}
+              {[
+                { label: 'Home', path: '/' },
+                { label: 'About', path: '/about' },
+                { label: 'Services', path: '/services' },
+                { label: 'Menu', path: '/menu' },
+                { label: 'Gallery', path: '/gallery' },
+                { label: 'Testimonials', path: '/testimonials' },
+                { label: 'Contact', path: '/contact' }
+              ].map((item) => (
+                <li key={item.path}>
+                  <Link
+                    to={item.path}
                     className="text-gray-400 hover:text-maroon-400 transition-colors duration-200"
                   >
-                    {item}
-                  </button>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { galleryImages } from '../data/mock';
 import { Card } from './ui/card';
 
 export const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const navigate = useNavigate();
   
   const categories = ['All', ...new Set(galleryImages.map(img => img.category))];
   
@@ -79,10 +81,7 @@ export const Gallery = () => {
             Want to see more of our work?
           </p>
           <button 
-            onClick={() => {
-              const element = document.getElementById('contact');
-              if (element) element.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={() => navigate('/contact')}
             className="text-maroon-600 font-semibold hover:text-maroon-700 transition-colors underline underline-offset-4"
           >
             Contact us for our complete portfolio

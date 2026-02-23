@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { menuData } from '../data/mock';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Card, CardContent } from './ui/card';
 import { UtensilsCrossed } from 'lucide-react';
 
 export const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState(0);
+  const [activeCategory, setActiveCategory] = React.useState(0);
+  const navigate = useNavigate();
 
   return (
     <section id="menu" className="py-24 bg-gradient-to-b from-maroon-50/30 to-white">
@@ -87,10 +89,7 @@ export const Menu = () => {
                 Our team can create a personalized menu tailored to your preferences, dietary requirements, and budget
               </p>
               <button 
-                onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) element.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => navigate('/contact')}
                 className="bg-white text-maroon-700 px-8 py-3 rounded-lg font-semibold hover:bg-maroon-50 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 Request Custom Quote
